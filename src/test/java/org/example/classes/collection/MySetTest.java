@@ -14,6 +14,7 @@ public class MySetTest {
     MySet collectionSet;
     MySet arraySet;
 
+    Flower flower = new Rose(10, 30);
     List<Flower> list = List.of(
             new Rose(10, 30),
             new Iris(6, 21));
@@ -25,16 +26,15 @@ public class MySetTest {
 
     @Before
     public void setUp() {
-        // When
+        // Given
         defaultSet = new MySet();
-        elementSet = new MySet(new Rose(10, 30));
+        elementSet = new MySet(flower);
         collectionSet = new MySet(list);
         arraySet = new MySet(array);
     }
 
     @Test
     public void testSize() {
-        // When set up
         // Then
         assertEquals(0, defaultSet.size());
         assertEquals(1, elementSet.size());
@@ -44,7 +44,6 @@ public class MySetTest {
 
     @Test
     public void testIsEmpty() {
-        // When set up
         // Then
         assertTrue(defaultSet.isEmpty());
         assertFalse(elementSet.isEmpty());
@@ -54,13 +53,9 @@ public class MySetTest {
 
     @Test
     public void testContains() {
-        // When
-        Flower flower = new Rose(10, 30);
-        MySet set = new MySet(flower);
-
         // Then
-        assertTrue(set.contains(flower));
-        assertFalse(set.contains(new Iris(1, 1)));
+        assertTrue(elementSet.contains(flower));
+        assertFalse(elementSet.contains(new Iris(1, 1)));
     }
 
     @Test
@@ -127,7 +122,6 @@ public class MySetTest {
 
     @Test
     public void testAdd() {
-        // When set up
         // Then
         Flower flower = new Rose(1, 1);
         assertTrue(defaultSet.add(flower));
@@ -138,22 +132,17 @@ public class MySetTest {
 
     @Test
     public void testRemove() {
-        // When
-        Flower flower = new Rose(10, 30);
-        MySet set = new MySet(flower);
-
         // Then
-        assertEquals(1, set.size());
-        assertTrue(set.remove(flower));
-        assertFalse(set.contains(flower));
-        assertFalse(set.remove(flower));
-        assertFalse(set.remove(null));
-        assertEquals(0, set.size());
+        assertEquals(1, elementSet.size());
+        assertTrue(elementSet.remove(flower));
+        assertFalse(elementSet.contains(flower));
+        assertFalse(elementSet.remove(flower));
+        assertFalse(elementSet.remove(null));
+        assertEquals(0, elementSet.size());
     }
 
     @Test
     public void testAddAll() {
-        // When set up
         // Then
         assertTrue(elementSet.addAll(list));
         assertFalse(elementSet.addAll(list));
@@ -171,13 +160,13 @@ public class MySetTest {
 
     @Test
     public void testRemoveAll() {
-        // When set up
-        // Then
+        // Given
         Flower flower = new Rose(10, 30);
         assertTrue(arraySet.add(flower));
         assertTrue(arraySet.addAll(list));
         assertEquals(6, arraySet.size());
 
+        // Then
         assertTrue(arraySet.removeAll(list));
         assertFalse(arraySet.removeAll(list));
         assertEquals(4, arraySet.size());
@@ -185,12 +174,12 @@ public class MySetTest {
 
     @Test
     public void testRetainAll() {
-        // When set up
-        // Then
+        // Given
         Flower flower = new Rose(10, 30);
         assertTrue(collectionSet.add(flower));
         assertEquals(3, collectionSet.size());
 
+        // Then
         assertTrue(collectionSet.retainAll(list));
         assertFalse(collectionSet.retainAll(list));
         assertEquals(2, collectionSet.size());
@@ -198,7 +187,6 @@ public class MySetTest {
 
     @Test
     public void testContainsAll() {
-        // When set up
         // Then
         assertTrue(collectionSet.containsAll(list));
         assertFalse(arraySet.containsAll(list));

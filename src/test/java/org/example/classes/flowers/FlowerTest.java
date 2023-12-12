@@ -42,8 +42,10 @@ public class FlowerTest {
 
     @Test
     public void testWither() {
-        // When
+        // Given
         Rose rose = new Rose(3, 10);
+
+        // When
         rose.wither();
         rose.wither();
 
@@ -62,8 +64,10 @@ public class FlowerTest {
 
     @Test
     public void testCut() {
-        // When
+        // Given
         Rose rose = new Rose(3, 10);
+
+        // When
         rose.cut(5);
 
         // Then
@@ -88,8 +92,10 @@ public class FlowerTest {
 
     @Test
     public void testSetPrice() {
-        // When
+        // Given
         Rose rose = new Rose(1, 1);
+
+        // When
         rose.setPrice(15);
 
         // Then

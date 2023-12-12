@@ -26,8 +26,10 @@ public class AccessoryTest {
 
     @Test
     public void testSetPrice() {
-        // When
+        // Given
         Accessory ribbon = new Accessory("ribbon", 10);
+
+        // When
         ribbon.setPrice(15);
 
         // Then
