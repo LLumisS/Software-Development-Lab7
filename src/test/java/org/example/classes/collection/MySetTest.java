@@ -123,7 +123,6 @@ public class MySetTest {
     @Test
     public void testAdd() {
         // Then
-        Flower flower = new Rose(1, 1);
         assertTrue(defaultSet.add(flower));
         assertFalse(defaultSet.add(flower));
         assertTrue(defaultSet.add(new Rose(1, 1)));
