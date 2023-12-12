@@ -130,8 +130,8 @@ public class MySet implements Set<Flower> {
      *  return a new array of MySet elements
      */
     @Override
-    public Object[] toArray() {
-        Object[] array = new Object[size];
+    public Flower[] toArray() {
+        Flower[] array = new Flower[size];
         int index = 0;
 
         Node current = head;
@@ -269,7 +269,7 @@ public class MySet implements Set<Flower> {
             throw new ExceptionHandler("Invalid array type given");
         }
 
-        if (a.length < size) {
+        if (a.length != size) {
             a = Arrays.copyOf(a, size);
         }
 
@@ -280,15 +280,11 @@ public class MySet implements Set<Flower> {
             current = current.next;
         }
 
-        if (a.length > size) {
-            a[size] = null;
-        }
-
         return (Flower[]) a;
     }
 
     /**
-     *  sort of flowers by its freshness
+     *  sort of flowers by its freshness by decreasing
      */
     public void sortByFreshness() {
         Flower[] array = toArray(new Flower[size]);

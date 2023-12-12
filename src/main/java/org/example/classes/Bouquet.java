@@ -61,7 +61,7 @@ public class Bouquet {
     }
 
     /**
-     *  sort of flowers by its freshness
+     *  sort of flowers by its freshness by decreasing
      */
     public void sortFlowersByFreshness() {
         flowers.sortByFreshness();
