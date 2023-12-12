@@ -2,8 +2,6 @@ package org.example.classes.flowers;
 
 import org.example.classes.error.ExceptionHandler;
 
-import java.util.InputMismatchException;
-
 public abstract class Flower {
     private int freshness;
     private double length;
