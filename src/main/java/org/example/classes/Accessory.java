@@ -1,5 +1,7 @@
 package org.example.classes;
 
+import org.example.classes.error.ExceptionHandler;
+
 import java.util.InputMismatchException;
 
 public class Accessory {
@@ -8,7 +10,7 @@ public class Accessory {
 
     public Accessory (String name, double price) {
         if (price < 0) {
-            throw new InputMismatchException("Cannot set negative price");
+            throw new ExceptionHandler("Cannot set negative price");
         }
 
         this.name = name;
@@ -20,7 +22,7 @@ public class Accessory {
      */
     public void setPrice(double price) {
         if (price < 0) {
-            throw new InputMismatchException("Cannot set negative price");
+            throw new ExceptionHandler("Cannot set negative price");
         }
 
         this.price = price;
