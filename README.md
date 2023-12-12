@@ -13,8 +13,10 @@
 ### Початкові налаштування
 1. Встановіть **JDK**.
 2. Налаштуйте змінні середовища, а саме **JAVA_HOME** (`<шлях до папки зі встановленним JDK>`) та **PATH** (`%JAVA_HOME%\bin`).
+3. Встановіть систему збірки проектів **Maven** з офіційного сайту *Apache Maven*.
 ### Запуск проекту
 1. **Склонуйте** репозиторій: `git clone https://github.com/LLumisS/Software-Development-Lab7.git`
 2. Перейдіть у каталог склонованого репозиторія: `cd Software-Development-Lab7`
 3. Проведіть **компіляцію** проекту: `javac -d bin src/main/java/org/example/*.java`
 4. **Запустіть** проект: `java -cp bin org.example.Main`
+5. Aбо **тести**: `mvn test`
