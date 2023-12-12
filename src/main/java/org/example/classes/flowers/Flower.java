@@ -1,5 +1,7 @@
 package org.example.classes.flowers;
 
+import org.example.classes.error.ExceptionHandler;
+
 import java.util.InputMismatchException;
 
 public abstract class Flower {
@@ -9,7 +11,7 @@ public abstract class Flower {
 
     public Flower(int freshness, double length, double price) {
         if (length <= 0 || freshness < 0 || price < 0) {
-            throw new InputMismatchException("Expected non-negative numbers");
+            throw new ExceptionHandler("Expected non-negative numbers");
         }
 
         this.freshness = freshness;
@@ -22,7 +24,7 @@ public abstract class Flower {
      */
     public void wither() {
         if (freshness == 0) {
-            throw new IllegalStateException("This flower is already withered...");
+            throw new ExceptionHandler("This flower is already withered...");
         }
         freshness--;
     }
@@ -32,11 +34,11 @@ public abstract class Flower {
      */
     public void cut(double length) {
         if (length < 0) {
-            throw new InputMismatchException("Cannot cut negative length");
+            throw new ExceptionHandler("Cannot cut negative length");
         }
         double result = this.length - length;
         if (result <= 0) {
-            throw new IllegalStateException("Cannot cut this much");
+            throw new ExceptionHandler("Cannot cut this much");
         }
 
         this.length = result;
@@ -47,7 +49,7 @@ public abstract class Flower {
      */
     public void setPrice(double price) {
         if (price < 0) {
-            throw new InputMismatchException("Cannot set negative price");
+            throw new ExceptionHandler("Cannot set negative price");
         }
 
         this.price = price;

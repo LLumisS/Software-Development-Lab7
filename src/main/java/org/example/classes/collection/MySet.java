@@ -1,5 +1,6 @@
 package org.example.classes.collection;
 
+import org.example.classes.error.ExceptionHandler;
 import org.example.classes.flowers.Flower;
 
 import java.util.*;
@@ -89,7 +90,6 @@ public class MySet implements Set<Flower> {
             current = current.next;
         }
         return false;
-
     }
 
     @Override
@@ -208,7 +208,11 @@ public class MySet implements Set<Flower> {
     }
 
     @Override
-    public Object[] toArray(Object[] a) {
+    public Flower[] toArray(Object[] a) {
+        if (!(a instanceof Flower[])) {
+            throw new ExceptionHandler("Invalid array type given");
+        }
+
         if (a.length < size) {
             a = Arrays.copyOf(a, size);
         }
@@ -224,11 +228,11 @@ public class MySet implements Set<Flower> {
             a[size] = null;
         }
 
-        return a;
+        return (Flower[]) a;
     }
 
     public void sortByFreshness() {
-        Flower[] array = (Flower[])toArray(new Flower[size]);
+        Flower[] array = toArray(new Flower[size]);
 
         Arrays.sort(array, Comparator.comparingInt(Flower::getFreshness));
 
