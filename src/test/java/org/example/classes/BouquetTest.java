@@ -7,22 +7,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BouquetTest {
-    Rose rose;
-    Iris iris;
-    Tulip tulip;
-    Flower[] flowers;
-    Accessory accessory;
-    Bouquet bouquet;
+    private Bouquet bouquet;
 
     @Before
     public void setUp() {
         // Given
-        rose = new Rose(7, 30, 1);
-        iris = new Iris(5, 25, 2);
-        tulip = new Tulip(10, 35, 3);
-        flowers = new Flower[]{ rose, iris, tulip };
+        Rose rose = new Rose(7, 30, 1);
+        Iris iris = new Iris(5, 25, 2);
+        Tulip tulip = new Tulip(10, 35, 3);
+        Flower[] flowers = new Flower[]{ rose, iris, tulip };
 
-        accessory = new Accessory("Ribbon", 4);
+        Accessory accessory = new Accessory("Ribbon", 4);
 
         bouquet = new Bouquet(flowers, accessory);
     }

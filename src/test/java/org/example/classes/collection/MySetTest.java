@@ -9,16 +9,16 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 public class MySetTest {
-    MySet defaultSet;
-    MySet elementSet;
-    MySet collectionSet;
-    MySet arraySet;
+    private MySet defaultSet;
+    private MySet elementSet;
+    private MySet collectionSet;
+    private MySet arraySet;
 
-    Flower flower = new Rose(10, 30);
-    List<Flower> list = List.of(
+    private final Flower flower = new Rose(10, 30);
+    private final List<Flower> list = List.of(
             new Rose(10, 30),
             new Iris(6, 21));
-    Flower[] array = new Flower[]{
+    private final Flower[] array = new Flower[]{
             new Tulip(8, 25),
             new Rose(10, 30),
             new Iris(6, 21)
@@ -125,7 +125,7 @@ public class MySetTest {
         // Then
         assertTrue(defaultSet.add(flower));
         assertFalse(defaultSet.add(flower));
-        assertTrue(defaultSet.add(new Rose(1, 1)));
+        assertTrue(defaultSet.add(new Rose(10, 30)));
         assertEquals(2, defaultSet.size());
     }
 
