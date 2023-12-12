@@ -71,6 +71,7 @@ public class MySet implements Set<Flower> {
 
     /**
      *  constructor with standard collection of flowers
+     *  creates an instance with given elements
      */
     public MySet(Collection<? extends Flower> collection) {
         this.addAll(collection);
@@ -78,6 +79,7 @@ public class MySet implements Set<Flower> {
 
     /**
      *  constructor with array of flowers
+     *  creates an instance with given elements
      */
     public MySet(Flower[] array) {
         this.addAll(List.of(array));
