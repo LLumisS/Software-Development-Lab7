@@ -1,14 +1,20 @@
 package org.example.classes;
 
+import org.example.classes.collection.MySet;
 import org.example.classes.flowers.Flower;
 
 public class Bouquet {
-    private final Flower[] flowers;
-    private final Accessory[] accessories;
+    private final MySet flowers;
+    private final Accessory accessory;
 
-    public Bouquet(Flower[] flowers, Accessory[] accessories) {
+    public Bouquet(Flower[] flowers, Accessory accessories) {
+        this.flowers = new MySet(flowers);
+        this.accessory = accessories;
+    }
+
+    public Bouquet(MySet flowers, Accessory accessories) {
         this.flowers = flowers;
-        this.accessories = accessories;
+        this.accessory = accessories;
     }
 
     /**
@@ -21,9 +27,7 @@ public class Bouquet {
         for (Flower flower : flowers) {
             price += flower.getPrice();
         }
-        for (Accessory accessory : accessories) {
-            price += accessory.getPrice();
-        }
+        price += accessory.getPrice();
 
         return price;
     }
@@ -60,22 +64,7 @@ public class Bouquet {
      *  bubble sort of flowers
      */
     public void sortFlowersByFreshness() {
-        int n = flowers.length;
-        boolean swapped = false;
-
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (flowers[j].getFreshness() > flowers[j + 1].getFreshness()) {
-                    Flower temp = flowers[j];
-                    flowers[j] = flowers[j + 1];
-                    flowers[j + 1] = temp;
-                    swapped = true;
-                }
-            }
-            if (!swapped) {
-                break;
-            }
-        }
+        flowers.sortByFreshness();
     }
 
     /**
@@ -87,11 +76,10 @@ public class Bouquet {
         for (Flower flower : flowers) {
             bouquet.append(getFlowerInfo(flower));
         }
-        for (Accessory accessory : accessories) {
-            String name = accessory.getName();
-            double price = accessory.getPrice();
-            bouquet.append(name).append("\t\t\t\t").append(price).append("\n");
-        }
+        String name = accessory.getName();
+        double price = accessory.getPrice();
+        bouquet.append(name).append("\t\t\t\t").append(price).append("\n");
+
         bouquet.append("\tTotal price: ").append(getPrice());
 
         return bouquet.toString();

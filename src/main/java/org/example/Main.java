@@ -12,9 +12,8 @@ public class Main {
         Flower[] flowers = new Flower[]{ rose, iris, tulip };
 
         Accessory ribbon = new Accessory("Ribbon", 4.99);
-        Accessory[] accessories = new Accessory[]{ ribbon };
 
-        Bouquet bouquet = new Bouquet(flowers, accessories);
+        Bouquet bouquet = new Bouquet(flowers, ribbon);
 
         // Demonstration
         System.out.println(bouquet.getBouquet() + "\n");

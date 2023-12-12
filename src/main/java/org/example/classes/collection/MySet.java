@@ -53,8 +53,12 @@ public class MySet implements Set<Flower> {
         this.size = 1;
     }
 
-    public MySet(Collection<Flower> collection) {
+    public MySet(Collection<? extends Flower> collection) {
         this.addAll(collection);
+    }
+
+    public MySet(Flower[] array) {
+        this.addAll(List.of(array));
     }
 
     @Override
@@ -221,5 +225,16 @@ public class MySet implements Set<Flower> {
         }
 
         return a;
+    }
+
+    public void sortByFreshness() {
+        Flower[] array = (Flower[])toArray(new Flower[size]);
+
+        Arrays.sort(array, Comparator.comparingInt(Flower::getFreshness));
+
+        head = null;
+        size = 0;
+
+        this.addAll(Arrays.asList(array));
     }
 }
