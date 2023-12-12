@@ -5,6 +5,10 @@ import org.example.classes.flowers.Flower;
 
 import java.util.*;
 
+/**
+ *  element of linked list
+ *  flower + next element
+ */
 class Node {
     Flower data;
     Node next;
@@ -19,6 +23,9 @@ public class MySet implements Set<Flower> {
     private Node head;
     private int size;
 
+    /**
+     *  custom iterator implementation for MySet class
+     */
     private static class MySetIterator implements Iterator<Flower> {
 
         private Node current;
@@ -44,20 +51,34 @@ public class MySet implements Set<Flower> {
         }
     }
 
+    /**
+     *  default constructor
+     *  creates an instance with 0 size and no elements
+     */
     public MySet() {
         this.head = null;
         this.size = 0;
     }
 
+    /**
+     *  constructor with one element
+     *  creates an instance with first element
+     */
     public MySet(Flower head) {
         this.head = new Node(head);
         this.size = 1;
     }
 
+    /**
+     *  constructor with standard collection of flowers
+     */
     public MySet(Collection<? extends Flower> collection) {
         this.addAll(collection);
     }
 
+    /**
+     *  constructor with array of flowers
+     */
     public MySet(Flower[] array) {
         this.addAll(List.of(array));
     }
@@ -72,6 +93,9 @@ public class MySet implements Set<Flower> {
         return size == 0;
     }
 
+    /**
+     *  check if the given element is in the MySet
+     */
     @Override
     public boolean contains(Object o) {
         if (o == null) {
@@ -92,11 +116,17 @@ public class MySet implements Set<Flower> {
         return false;
     }
 
+    /**
+     *  return a new iterator for this instance
+     */
     @Override
     public Iterator<Flower> iterator() {
         return new MySetIterator(head);
     }
 
+    /**
+     *  return a new array of MySet elements
+     */
     @Override
     public Object[] toArray() {
         Object[] array = new Object[size];
@@ -111,6 +141,9 @@ public class MySet implements Set<Flower> {
         return array;
     }
 
+    /**
+     *  add given element
+     */
     @Override
     public boolean add(Flower flower) {
         if (!contains(flower)) {
@@ -123,6 +156,9 @@ public class MySet implements Set<Flower> {
         return false;
     }
 
+    /**
+     *  remove given element
+     */
     @Override
     public boolean remove(Object o) {
         if (o == null) {
@@ -149,6 +185,9 @@ public class MySet implements Set<Flower> {
         return false;
     }
 
+    /**
+     *  add all given elements
+     */
     @Override
     public boolean addAll(Collection<? extends Flower> c) {
         boolean modified = false;
@@ -158,12 +197,18 @@ public class MySet implements Set<Flower> {
         return modified;
     }
 
+    /**
+     *  clear the collection
+     */
     @Override
     public void clear() {
         head = null;
         size = 0;
     }
 
+    /**
+     *  remove all given elements
+     */
     @Override
     public boolean removeAll(Collection c) {
         boolean modified = false;
@@ -173,6 +218,9 @@ public class MySet implements Set<Flower> {
         return modified;
     }
 
+    /**
+     *  retain in the MySet only given elements
+     */
     @Override
     public boolean retainAll(Collection c) {
         boolean modified = false;
@@ -197,6 +245,9 @@ public class MySet implements Set<Flower> {
         return modified;
     }
 
+    /**
+     *  check if the given collection elements is in the MySet
+     */
     @Override
     public boolean containsAll(Collection c) {
         for (Object element : c) {
@@ -207,6 +258,9 @@ public class MySet implements Set<Flower> {
         return true;
     }
 
+    /**
+     *  write the list elements in given array
+     */
     @Override
     public Flower[] toArray(Object[] a) {
         if (!(a instanceof Flower[])) {
@@ -231,6 +285,9 @@ public class MySet implements Set<Flower> {
         return (Flower[]) a;
     }
 
+    /**
+     *  sort of flowers by its freshness
+     */
     public void sortByFreshness() {
         Flower[] array = toArray(new Flower[size]);
 

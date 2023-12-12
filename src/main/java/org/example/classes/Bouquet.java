@@ -19,7 +19,7 @@ public class Bouquet {
 
     /**
      *  calculates a price of a bouquet
-     *  depends on flowers/accessories price
+     *  depends on flowers/accessory price
      */
     public double getPrice() {
         double price = 0;
@@ -61,14 +61,14 @@ public class Bouquet {
     }
 
     /**
-     *  bubble sort of flowers
+     *  sort of flowers by its freshness
      */
     public void sortFlowersByFreshness() {
         flowers.sortByFreshness();
     }
 
     /**
-     *  returns String of flowers and accessories with info
+     *  returns String of flowers and accessory with info
      */
     public String getBouquet() {
         StringBuilder bouquet = new StringBuilder();
