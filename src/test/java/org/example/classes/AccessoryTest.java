@@ -1,7 +1,6 @@
 package org.example.classes;
 
 import org.example.classes.error.ExceptionHandler;
-import org.example.classes.flowers.Rose;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
