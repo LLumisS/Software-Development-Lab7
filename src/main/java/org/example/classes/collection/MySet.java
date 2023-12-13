@@ -144,7 +144,7 @@ public class MySet implements Set<Flower> {
     }
 
     /**
-     *  add given element
+     *  add given element if it's unique
      */
     @Override
     public boolean add(Flower flower) {
@@ -188,7 +188,7 @@ public class MySet implements Set<Flower> {
     }
 
     /**
-     *  add all given elements
+     *  add all unique given elements
      */
     @Override
     public boolean addAll(Collection<? extends Flower> c) {
