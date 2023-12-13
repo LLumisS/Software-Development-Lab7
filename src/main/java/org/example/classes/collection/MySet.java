@@ -42,7 +42,7 @@ public class MySet implements Set<Flower> {
         @Override
         public Flower next() {
             if (!hasNext()) {
-                throw new NoSuchElementException();
+                throw new ExceptionHandler("No such element");
             }
 
             Flower data = current.data;

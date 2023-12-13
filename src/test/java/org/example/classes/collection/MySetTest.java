@@ -71,6 +71,14 @@ public class MySetTest {
             int freshness = expectedFreshness[index++];
             assertEquals(freshness, flower.getFreshness());
         }
+
+        try {
+            // When
+            iterator.next();
+        } catch (ExceptionHandler e) {
+            // Then
+            assertEquals("No such element", e.getMessage());
+        }
     }
 
     @Test
