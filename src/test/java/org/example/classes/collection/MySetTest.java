@@ -62,14 +62,12 @@ public class MySetTest {
     public void testIterator() {
         // When
         Iterator<Flower> iterator = arraySet.iterator();
-        int[] expectedFreshness = new int[]{ 6, 10, 8 };
 
         // Then
-        int index = 0;
+        int index = arraySet.size() - 1;
         while(iterator.hasNext()) {
             Flower flower = iterator.next();
-            int freshness = expectedFreshness[index++];
-            assertEquals(freshness, flower.getFreshness());
+            assertEquals(array[index--], flower);
         }
 
         try {
