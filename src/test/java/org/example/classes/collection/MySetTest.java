@@ -73,6 +73,7 @@ public class MySetTest {
         try {
             // When
             iterator.next();
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("No such element", e.getMessage());

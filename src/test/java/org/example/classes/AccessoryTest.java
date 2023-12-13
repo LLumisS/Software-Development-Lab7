@@ -11,6 +11,7 @@ public class AccessoryTest {
         try {
             // When
             new Accessory("ribbon", -1);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Cannot set negative price", e.getMessage());
@@ -37,6 +38,7 @@ public class AccessoryTest {
         try {
             // When
             ribbon.setPrice(-1);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Cannot set negative price", e.getMessage());

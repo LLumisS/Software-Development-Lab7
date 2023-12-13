@@ -11,6 +11,7 @@ public class FlowerTest {
         try {
             // When
             new Rose(-1, 10, 10);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Expected non-negative numbers", e.getMessage());
@@ -19,6 +20,7 @@ public class FlowerTest {
         try {
             // When
             new Iris(10, -1, 10);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Expected non-negative numbers", e.getMessage());
@@ -27,6 +29,7 @@ public class FlowerTest {
         try {
             // When
             new Tulip(10, 10, -1);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Expected non-negative numbers", e.getMessage());
@@ -56,6 +59,7 @@ public class FlowerTest {
             // When
             rose.wither();
             rose.wither();
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("This flower is already withered...", e.getMessage());
@@ -76,6 +80,7 @@ public class FlowerTest {
         try {
             // When
             rose.cut(10);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Cannot cut this much", e.getMessage());
@@ -84,6 +89,7 @@ public class FlowerTest {
         try {
             // When
             rose.cut(-1);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Cannot cut negative length", e.getMessage());
@@ -104,6 +110,7 @@ public class FlowerTest {
         try {
             // When
             rose.setPrice(-1);
+            fail();
         } catch (ExceptionHandler e) {
             // Then
             assertEquals("Cannot set negative price", e.getMessage());
